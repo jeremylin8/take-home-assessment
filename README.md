@@ -32,12 +32,12 @@ If you'd like, use the `.eslintrc.js` file to configure your editor to use the s
 
 **Frontend** _Next_, _within two hours_, please complete as many as possible of the following tasks. They aren't in any particular order, so feel free to tackle them in any order you like. They vary in difficulty, so don't feel like you have to do them all. _Please check off the specific tasks you choose to complete prior to submitting._
 
-- [ ] Animate the progress bar without adding new dependencies (using TailwindCSS is preferred).
-- [ ] Debounce the `save()` function in the App component to avoid unnecessary re-renders and API calls. (Avoid adding a new dependency if possible.)
-- [ ] Implement a `multiple` question type allowing multiple fields of varying types on one `Question` component.
+- [x] Animate the progress bar without adding new dependencies (using TailwindCSS is preferred).
+- [x] Debounce the `save()` function in the App component to avoid unnecessary re-renders and API calls. (Avoid adding a new dependency if possible.)
+- [x] Implement a `multiple` question type allowing multiple fields of varying types on one `Question` component.
 - [ ] Implement a conditional-sequence feature that sets the next question based on current responses. (Don't worry if you can't finish this one—we're interested in your thought process!)
-- [ ] Improve the project's test coverage. (Bonus points for fixing any bugs you find!)
-- [ ] Add a `PercentageField` component for inputting percentage values. Validate input (0-100) using Formik and Yup (optional).
+- [partial] Improve the project's test coverage. (Bonus points for fixing any bugs you find!)
+- [x] Add a `PercentageField` component for inputting percentage values. Validate input (0-100) using Formik and Yup (optional).
 
 ## 📋 Evaluation Criteria
 

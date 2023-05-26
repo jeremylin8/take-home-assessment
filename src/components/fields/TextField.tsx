@@ -8,8 +8,10 @@ function TextField({ name, initialValue, onChange }: TextFieldProps) {
   const [value, setValue] = useState(initialValue)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value)
-    onChange(e)
+    if (e.target.value.match('^[a-zA-Z ]*$') !== null && e.target.value.length <= 30) {
+      setValue(e.target.value)
+      onChange(e)
+    }
   }
 
   return (

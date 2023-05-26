@@ -4,7 +4,7 @@ import questions from './questions.json'
 import Button from './components/Button'
 import Question from './components/Question'
 import ProgressBar from './components/ProgressBar'
-import { toTitleCase } from './utils'
+import { toTitleCase, debounce } from './utils'
 import { Question as QuestionType } from './types'
 
 function App() {
@@ -32,8 +32,10 @@ function App() {
     }
   }
 
+  const debounceSave = debounce(save)
+
   useEffect(() => {
-    save()
+    debounceSave()
   }, [data])
 
   const renderStatus = () => {
@@ -58,6 +60,8 @@ function App() {
 
   const question: QuestionType = questions[index]
 
+  // for conditional-sequence feature, I'm thinking about using a hashtable, design a hash function to return an index based on current answer
+
   return (
     <>
       <div className="m-10 mx-auto max-w-5xl space-y-5">
@@ -66,6 +70,7 @@ function App() {
           <Question
             question={question}
             onChange={handleChange}
+            answers={data}
           />
           <div className="flex-1" />
           <div className="flex items-center space-x-5">
@@ -82,6 +87,7 @@ function App() {
             <Button
               onClick={() => { setIndex(index + 1) }}
               disabled={index >= questions.length - 1}
+              data-testid="btn-increment"
             >
               Next &rarr;
             </Button>

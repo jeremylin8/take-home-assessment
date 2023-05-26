@@ -6,8 +6,10 @@ function NumberField({ name, initialValue, onChange }: FieldProps) {
   const [value, setValue] = useState(initialValue)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value)
-    onChange(e)
+    if (e.target.value.match('^([0-9]|([1-9][0-9])|100)?$') !== null) {
+      setValue(e.target.value)
+      onChange(e)
+    }
   }
 
   return (
@@ -16,6 +18,8 @@ function NumberField({ name, initialValue, onChange }: FieldProps) {
       name={name}
       className="block w-full rounded-lg border-2 border-gray-300 py-2 px-3 focus:outline-none"
       value={value}
+      min="0"
+      max="100"
       onChange={handleChange}
     />
   )

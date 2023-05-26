@@ -9,10 +9,15 @@ export type Question = {
     [key: string]: string;
   };
   choices?: string[];
+  multiple?: string[];
 };
 
+export interface Answers {
+  [key: string]: string
+}
 export interface QuestionProps {
   question: Question;
+  answers: Answers;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 

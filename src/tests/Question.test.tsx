@@ -34,4 +34,8 @@ describe('Question', () => {
     render(<Question question={question} onChange={vi.fn()} />)
     expect(screen.getByRole('textbox')).toBeInTheDocument()
   })
+  it('renders the description of the modal', () => {
+    render(<Question question={question} onChange={vi.fn()} />)
+    expect(screen.getByText(question.modals.description)).toBeInTheDocument()
+  })
 })

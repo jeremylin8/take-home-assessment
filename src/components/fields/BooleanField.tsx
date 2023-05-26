@@ -6,6 +6,8 @@ import ChoiceField from './ChoiceField'
 function BooleanField({ name, initialValue, onChange }: FieldProps) {
   const convertStringToBoolean = (value: string) => value === 'Yes'
 
+  const convertBooleanToString = (value?: boolean | string) => (value ? 'Yes' : value === false ? 'No' : '')
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const modifiedEvent = {
       target: { name: e.target.name, value: convertStringToBoolean(e.target.value) },
@@ -15,7 +17,7 @@ function BooleanField({ name, initialValue, onChange }: FieldProps) {
   }
 
   return (
-    <ChoiceField name={name} initialValue={initialValue} onChange={handleChange} choices={['Yes', 'No']} />
+    <ChoiceField name={name} initialValue={convertBooleanToString(initialValue)} onChange={handleChange} choices={['Yes', 'No']} />
   )
 }
 
